@@ -12,6 +12,10 @@ void RPUtlShadowDrawer::initMtx() const {
     sCameraMtx = mLocalMtx;
 }
 
+void RPUtlShadowDrawer::initMtx() const {
+    sGlobalMtx = mLocalMtx;
+}
+
 /**
  * @brief Draws basic shadows.
  */
