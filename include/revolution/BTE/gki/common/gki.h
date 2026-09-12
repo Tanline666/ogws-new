@@ -443,7 +443,6 @@ GKI_API extern void    GKI_start_timer(UINT8, INT32, BOOLEAN);
 GKI_API extern void    GKI_stop_timer (UINT8);
 GKI_API extern void    GKI_timer_update(INT32);
 GKI_API extern UINT16  GKI_update_timer_list (TIMER_LIST_Q *, INT32);
-GKI_API extern UINT32  GKI_get_remaining_ticks (TIMER_LIST_Q *, TIMER_LIST_ENT  *);
 GKI_API extern UINT16  GKI_wait(UINT16, UINT32);
 
 /* Start and Stop system time tick callback
@@ -491,4 +490,3 @@ GKI_API extern void    GKI_print_task(void);
 
 
 #endif
-
