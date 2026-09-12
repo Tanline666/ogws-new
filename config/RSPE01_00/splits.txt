@@ -1,0 +1,232 @@
+Sections:
+	.init       type:code align:4
+	extab       type:rodata align:32
+	extabindex  type:rodata align:32
+	.text       type:code align:8
+	.ctors      type:rodata align:32
+	.dtors      type:rodata align:8
+	.BINARY     type:rodata align:32
+	.rodata     type:rodata align:16
+	.data       type:data align:32
+	.bss        type:bss align:128
+	.sdata      type:data align:32
+	.sbss       type:bss align:16
+	.sdata2     type:rodata align:4
+	.sbss2      type:bss align:4
+
+nw4r/ut/ut_list.cpp:
+	.text       start:0x800074A0 end:0x8000773C
+
+nw4r/ut/ut_LinkList.cpp:
+	.text       start:0x8000773C end:0x800078A8
+
+nw4r/ut/ut_binaryFileFormat.cpp:
+	.text       start:0x800078A8 end:0x8000791C
+
+nw4r/ut/ut_CharStrmReader.cpp:
+	.text       start:0x8000791C end:0x80007A2C
+
+nw4r/ut/ut_TagProcessorBase.cpp:
+	.text       start:0x80007A2C end:0x800081EC
+	.data       start:0x8035D800 end:0x8035D828
+	.sdata2     start:0x804E0020 end:0x804E0028
+
+nw4r/ut/ut_IOStream.cpp:
+	.text       start:0x800081EC end:0x8000822C
+	.ctors      start:0x803300A4 end:0x803300A8
+	.sbss       start:0x804DF0A0 end:0x804DF0A8
+
+nw4r/ut/ut_FileStream.cpp:
+	.text       start:0x8000822C end:0x80008398
+	.ctors      start:0x803300A8 end:0x803300AC
+	.sbss       start:0x804DF0A8 end:0x804DF0B0
+
+nw4r/ut/ut_DvdFileStream.cpp:
+	.text       start:0x80008398 end:0x800089A8
+	.ctors      start:0x803300AC end:0x803300B0
+
+nw4r/ut/ut_DvdLockedFileStream.cpp:
+	.text       start:0x800089A8 end:0x80008BFC
+	.ctors      start:0x803300B0 end:0x803300B4
+
+nw4r/ut/ut_NandFileStream.cpp:
+	.text       start:0x80008BFC end:0x800098BC
+	.ctors      start:0x803300B4 end:0x803300B8
+
+nw4r/ut/ut_LockedCache.cpp:
+	.text       start:0x800098BC end:0x80009A68
+	.ctors      start:0x803300B8 end:0x803300BC
+
+nw4r/ut/ut_Font.cpp:
+	.text       start:0x80009A68 end:0x80009B10
+
+nw4r/ut/ut_RomFont.cpp:
+	.text       start:0x80009B10 end:0x8000A244
+
+nw4r/ut/ut_ResFontBase.cpp:
+	.text       start:0x8000A244 end:0x8000A814
+
+nw4r/ut/ut_ResFont.cpp:
+	.text       start:0x8000A814 end:0x8000AB18
+
+nw4r/ut/ut_CharWriter.cpp:
+	.text       start:0x8000AB18 end:0x8000C824
+
+nw4r/ut/ut_TextWriterBase.cpp:
+	.text       start:0x8000C824 end:0x800100C4
+	.ctors      start:0x803300BC end:0x803300C0
+
+nw4r/ef/ef_draworder.cpp:
+	.text       start:0x800100C4 end:0x800101C4
+
+nw4r/ef/ef_effect.cpp:
+	.text       start:0x800101C4 end:0x80010D14
+	.ctors      start:0x803300C0 end:0x803300C4
+
+nw4r/ef/ef_effectsystem.cpp:
+	.text       start:0x80010D14 end:0x800113D4
+	.ctors      start:0x803300C4 end:0x803300C8
+
+nw4r/ef/ef_emitter.cpp:
+	.text       start:0x800113D4 end:0x80013270
+
+nw4r/ef/ef_animcurve.cpp:
+	.text       start:0x80013270 end:0x8001AC10
+	.sdata2     start:0x804E0098 end:0x804E00A0
+
+nw4r/ef/ef_particle.cpp:
+	.text       start:0x8001AC10 end:0x8001B6D8
+	.data       start:0x8035DB40 end:0x8035DB50
+	.sdata2     start:0x804E00A0 end:0x804E00E8
+
+nw4r/ef/ef_particlemanager.cpp:
+	.text       start:0x8001B6D8 end:0x8001D740
+	.ctors      start:0x803300C8 end:0x803300CC
+	.data       start:0x8035DB50 end:0x8035DC40
+	.bss        start:0x80397F58 end:0x80397F88
+	.sdata2     start:0x804E00F0 end:0x804E0120
+
+nw4r/ef/ef_resource.cpp:
+	.text       start:0x8001D740 end:0x8001E330
+	.ctors      start:0x803300CC end:0x803300D0
+	.bss        start:0x80397F88 end:0x80397FA8
+
+nw4r/ef/ef_util.cpp:
+	.text       start:0x8001E330 end:0x8001ED14
+	.sdata2     start:0x804E0120 end:0x804E0138
+
+nw4r/ef/ef_handle.cpp:
+	.text       start:0x8001FC48 end:0x8001FD00
+
+nw4r/ef/ef_emitterform.cpp:
+	.text       start:0x8001FD00 end:0x800202F0
+	.sdata2     start:0x804E0138 end:0x804E0170
+
+nw4r/ef/ef_creationqueue.cpp:
+	.text       start:0x800202F0 end:0x800205E4
+
+nw4r/ef/emform/ef_emform.cpp:
+	.text       start:0x800205E4 end:0x8002069C
+	.ctors      start:0x803300D0 end:0x803300D4
+	.data       start:0x8035DCF8 end:0x8035DD38
+	.sbss       start:0x804DF0E8 end:0x804DF108
+
+nw4r/ef/drawstrategy/ef_drawstrategyimpl.cpp:
+	.text       start:0x800257A4 end:0x80027338
+	.sdata2     start:0x804E0368 end:0x804E0398
+
+nw4r/math/math_arithmetic.cpp:
+	.text       start:0x8002BF18 end:0x8002C054
+	.data       start:0x8035DE70 end:0x8035E780
+	.sdata2     start:0x804E0438 end:0x804E0458
+
+nw4r/math/math_triangular.cpp:
+	.text       start:0x8002C054 end:0x8002C498
+	.data       start:0x8035E780 end:0x8035F898
+	.sdata2     start:0x804E0458 end:0x804E0480
+
+nw4r/math/math_types.cpp:
+	.text       start:0x8002C498 end:0x8002C9A4
+	.sdata2     start:0x804E0480 end:0x804E0490
+
+nw4r/db/db_exception.cpp:
+	.text       start:0x8004A630 end:0x8004B4AC
+
+runtime/__init_cpp_exceptions.cpp:
+	.text       start:0x8008C894 end:0x8008C904
+	.ctors      start:0x803300A0 end:0x803300A4 rename:.ctors$10
+	.dtors      start:0x80330280 end:0x80330284 rename:.dtors$10
+	.dtors      start:0x80330284 end:0x80330288 rename:.dtors$15
+	.sdata      start:0x804DDC28 end:0x804DDC30
+
+MSL/k_sin.c:
+	.text       start:0x8009A6A0 end:0x8009A760
+	.sdata2     start:0x804E0F90 end:0x804E0FC8
+
+MSL/k_tan.c:
+	.text       start:0x8009A760 end:0x8009A9B8
+	.rodata     start:0x80344CB8 end:0x80344D20
+	.sdata2     start:0x804E0FC8 end:0x804E1000
+
+revolution/EXI/EXIBios.c:
+	.text       start:0x800B0DF8 end:0x800B268C
+	.data       start:0x80363930 end:0x80363978
+	.bss        start:0x803D7150 end:0x803D7210
+	.sdata      start:0x804DDCD8 end:0x804DDCE0
+	.sbss       start:0x804DF400 end:0x804DF408
+
+revolution/GX/GXInit.c:
+	.text       start:0x800B40CC end:0x800B5294
+
+revolution/GX/GXGeometry.c:
+	.text       start:0x800B7914 end:0x800B7ECC
+
+revolution/GX/GXTexture.c:
+	.text       start:0x800B90E8 end:0x800BA288
+
+revolution/GX/GXBump.c:
+	.text       start:0x800BA288 end:0x800BA6D4
+	.sdata2     start:0x804E11C8 end:0x804E11D0
+
+revolution/MTX/mtx.c:
+	.text       start:0x800C11EC end:0x800C1E54
+
+revolution/MTX/mtxvec.c:
+	.text       start:0x800C1E54 end:0x800C1EA8
+
+revolution/MTX/mtx44.c:
+	.text       start:0x800C1EA8 end:0x800C20C8
+	.sdata2     start:0x804E1298 end:0x804E12B0
+
+revolution/DVD/dvdfs.c:
+	.text       start:0x80112C00 end:0x80113648
+	.data       start:0x8037E400 end:0x8037E568
+	.sdata      start:0x804DE028 end:0x804DE038
+	.sbss       start:0x804DF8A0 end:0x804DF8C0
+
+revolution/DVD/dvd.c:
+	.text       start:0x80113648 end:0x80117978
+	.data       start:0x8037E568 end:0x8037E7F8
+	.bss        start:0x8043EAC0 end:0x80443650
+	.sdata      start:0x804DE038 end:0x804DE050
+	.sbss       start:0x804DF8C0 end:0x804DF948
+
+revolution/DVD/dvdqueue.c:
+	.text       start:0x80117978 end:0x80117BD0
+	.bss        start:0x80443650 end:0x80443680
+
+revolution/DVD/dvderror.c:
+	.text       start:0x80117BD0 end:0x80117ED8
+
+revolution/DVD/dvdidutils.c:
+	.text       start:0x80117ED8 end:0x80117FC8
+
+Pack/RPKernel/RPSysSystem.cpp:
+	.text       start:0x801551E4 end:0x80156448
+	.ctors      start:0x80330128 end:0x8033012C
+
+main.cpp:
+	.text       start:0x80156448 end:0x801564CC
+
+Pack/RPSystem/RPSysSceneCreator.cpp:
+	.text       start:0x801564CC end:0x8015736C
