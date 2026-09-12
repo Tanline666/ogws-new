@@ -109,55 +109,6 @@ void gki_timers_init(void)
 
 /*******************************************************************************
 **
-** Function         gki_timers_is_timer_running
-**
-** Description      This internal function is called to test if any gki timer are running
-**
-**
-** Returns          TRUE if at least one time is running in the system, FALSE else.
-**
-*******************************************************************************/
-BOOLEAN gki_timers_is_timer_running(void)
-{
-    UINT8   tt;
-    for (tt = 0; tt < GKI_MAX_TASKS; tt++)
-    {
-
-#if (GKI_NUM_TIMERS > 0)
-        if(gki_cb.com.OSTaskTmr0  [tt])
-        {
-            return TRUE;
-        }
-#endif
-
-#if (GKI_NUM_TIMERS > 1)
-        if(gki_cb.com.OSTaskTmr1  [tt] )
-        {
-            return TRUE;
-        }
-#endif
-
-#if (GKI_NUM_TIMERS > 2)
-        if(gki_cb.com.OSTaskTmr2  [tt] )
-        {
-            return TRUE;
-        }
-#endif
-
-#if (GKI_NUM_TIMERS > 3)
-        if(gki_cb.com.OSTaskTmr3  [tt] )
-        {
-            return TRUE;
-        }
-#endif
-    }
-
-    return FALSE;
-
-}
-
-/*******************************************************************************
-**
 ** Function         GKI_get_tick_count
 **
 ** Description      This function returns the current system ticks
@@ -235,7 +186,7 @@ void GKI_start_timer (UINT8 tnum, INT32 ticks, BOOLEAN is_continuous)
     GKI_disable();
 
 #ifndef REVOLUTION
-    if(gki_timers_is_timer_running() == FALSE)
+    if(gki_timers_is_timer_running() == FALSE) // not in Wii Sports
     {
 #if (defined(GKI_DELAY_STOP_SYS_TICK) && (GKI_DELAY_STOP_SYS_TICK > 0))
         /* if inactivity delay timer is not running, start system tick */
@@ -365,7 +316,7 @@ void GKI_stop_timer (UINT8 tnum)
 #ifndef REVOLUTION
     GKI_disable();
 
-    if (gki_timers_is_timer_running() == FALSE)
+    if (gki_timers_is_timer_running() == FALSE) // not in Wii Sports
     {
         if (gki_cb.com.p_tick_cb)
         {
@@ -768,55 +719,6 @@ UINT16 GKI_update_timer_list (TIMER_LIST_Q *p_timer_listq, INT32 num_units_since
     }
 
     return (num_time_out);
-}
-
-/*******************************************************************************
-**
-** Function         GKI_get_remaining_ticks
-**
-** Description      This function is called by an application to get remaining
-**                  ticks to expire
-**
-** Parameters       p_timer_listq   - (input) pointer to the timer list queue object
-**                  p_target_tle    - (input) pointer to a timer list queue entry
-**
-** Returns          0 if timer is not used or timer is not in the list
-**                  remaining ticks if success
-**
-*******************************************************************************/
-UINT32 GKI_get_remaining_ticks (TIMER_LIST_Q *p_timer_listq, TIMER_LIST_ENT  *p_target_tle)
-{
-    TIMER_LIST_ENT  *p_tle;
-    UINT32           rem_ticks = 0;
-
-    if (p_target_tle->in_use)
-    {
-        p_tle = p_timer_listq->p_first;
-
-        /* adding up all of ticks in previous entries */
-        while ((p_tle)&&(p_tle != p_target_tle))
-        {
-            rem_ticks += p_tle->ticks;
-            p_tle = p_tle->p_next;
-        }
-
-        /* if found target entry */
-        if (p_tle == p_target_tle)
-        {
-            rem_ticks += p_tle->ticks;
-        }
-        else
-        {
-            BT_ERROR_TRACE_0(TRACE_LAYER_GKI, "GKI_get_remaining_ticks: No timer entry in the list");
-            return(0);
-        }
-    }
-    else
-    {
-        BT_ERROR_TRACE_0(TRACE_LAYER_GKI, "GKI_get_remaining_ticks: timer entry is not active");
-    }
-
-    return (rem_ticks);
 }
 
 /*******************************************************************************

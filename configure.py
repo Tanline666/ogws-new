@@ -31,8 +31,9 @@ from tools.project import (
 )
 
 # Game versions
-DEFAULT_VERSION = 0
+DEFAULT_VERSION = 1
 VERSIONS = [
+    "RSPE01_00",
     "RSPE01_01",  # USA Rev 1
 ]
 
@@ -353,6 +354,17 @@ cflags_libnw4r_lyt = [
     "-i include/nw4r",
 ]
 
+# NW4R debug library flags
+# TODO(texline) verify this
+cflags_libnw4r_db = [
+    *cflags_base,
+    *cflags_pedantic,
+    "-enc SJIS",
+    "-fp_contract off",
+    "-ipa file",
+    "-i include/nw4r",
+]
+
 # NW4R RFL extension flags
 cflags_libnw4r_g3d_scnrfl = [
     *cflags_base,
@@ -460,7 +472,7 @@ config.libs = [
             Object(Matching, "nw4r/ut/ut_LinkList.cpp"),
             Object(Matching, "nw4r/ut/ut_binaryFileFormat.cpp"),
             Object(Matching, "nw4r/ut/ut_CharStrmReader.cpp"),
-            Object(Matching, "nw4r/ut/ut_TagProcessorBase.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ut/ut_TagProcessorBase.cpp"),
             Object(Matching, "nw4r/ut/ut_IOStream.cpp"),
             Object(Matching, "nw4r/ut/ut_FileStream.cpp"),
             Object(Matching, "nw4r/ut/ut_DvdFileStream.cpp"),
@@ -472,7 +484,7 @@ config.libs = [
             Object(Matching, "nw4r/ut/ut_ResFontBase.cpp"),
             Object(Matching, "nw4r/ut/ut_ResFont.cpp"),
             Object(Matching, "nw4r/ut/ut_CharWriter.cpp"),
-            Object(Matching, "nw4r/ut/ut_TextWriterBase.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ut/ut_TextWriterBase.cpp"),
         ]
     },
     {
@@ -481,19 +493,19 @@ config.libs = [
         "cflags": cflags_libnw4r_ef,
         "progress_category": "nw4r",  # str | List[str]
         "objects": [
-            Object(Matching, "nw4r/ef/ef_draworder.cpp"),
-            Object(Matching, "nw4r/ef/ef_effect.cpp"),
-            Object(Matching, "nw4r/ef/ef_effectsystem.cpp"),
-            Object(Matching, "nw4r/ef/ef_emitter.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_draworder.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_effect.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_effectsystem.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_emitter.cpp"),
             Object(NonMatching, "nw4r/ef/ef_animcurve.cpp"),
-            Object(Matching, "nw4r/ef/ef_particle.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_particle.cpp"),
             Object(NonMatching, "nw4r/ef/ef_particlemanager.cpp"),
-            Object(Matching, "nw4r/ef/ef_resource.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_resource.cpp"),
             Object(Matching, "nw4r/ef/ef_util.cpp"),
             Object(Matching, "nw4r/ef/ef_handle.cpp"),
-            Object(Matching, "nw4r/ef/ef_emitterform.cpp"),
-            Object(Matching, "nw4r/ef/ef_creationqueue.cpp"),
-            Object(Matching, "nw4r/ef/emform/ef_emform.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_emitterform.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/ef_creationqueue.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/emform/ef_emform.cpp"),
             Object(Matching, "nw4r/ef/emform/ef_point.cpp"),
             Object(Matching, "nw4r/ef/emform/ef_line.cpp"),
             Object(NonMatching, "nw4r/ef/emform/ef_disc.cpp"),
@@ -502,7 +514,7 @@ config.libs = [
             Object(Matching, "nw4r/ef/emform/ef_torus.cpp"),
             Object(Matching, "nw4r/ef/emform/ef_cube.cpp"),
             Object(Matching, "nw4r/ef/drawstrategy/ef_drawstrategybuilder.cpp"),
-            Object(Matching, "nw4r/ef/drawstrategy/ef_drawstrategyimpl.cpp"),
+            Object(not MatchingFor("RSPE01_00"), "nw4r/ef/drawstrategy/ef_drawstrategyimpl.cpp"),
             Object(NonMatching, "nw4r/ef/drawstrategy/ef_drawbillboardstrategy.cpp"),
             Object(NonMatching, "nw4r/ef/drawstrategy/ef_drawdirectionalstrategy.cpp"),
             Object(NonMatching, "nw4r/ef/drawstrategy/ef_drawfreestrategy.cpp"),
@@ -690,6 +702,15 @@ config.libs = [
         ]
     },
     {
+        "lib": "libnw4r_db",
+        "mw_version": config.linker_version,
+        "cflags": cflags_libnw4r_db,
+        "progress_category": "nw4r",
+        "objects": [
+            Object(NonMatching, "nw4r/db/db_exception.cpp"),
+        ]
+    },
+    {
         "lib": "libnw4r_g3d_scnrfl",
         "mw_version": config.linker_version,
         "cflags": cflags_libnw4r_g3d_scnrfl,
@@ -802,7 +823,7 @@ config.libs = [
             Object(NonMatching, "runtime/NMWException.c"),
             Object(Matching, "runtime/ptmf.c"),
             Object(Matching, "runtime/runtime.c"),
-            Object(NonMatching, "runtime/__init_cpp_exceptions.cpp"),
+            Object(Matching, "runtime/__init_cpp_exceptions.cpp"),
             Object(Matching, "runtime/Gecko_ExceptionPPC.c"),
             Object(Matching, "runtime/GCN_mem_alloc.c"),
         ],
@@ -1028,7 +1049,11 @@ config.libs = [
             Object(Matching, "revolution/AXFX/AXFXSrcCoef.c"),
             Object(Matching, "revolution/AXFX/AXFXHooks.c"),
             Object(Matching, "revolution/BASE/PPCArch.c"),
-            Object(NonMatching, "revolution/BTE/bte_unsplit.c"),
+            Object(Matching, "revolution/BTE/gki/common/gki_buffer.c"),
+            Object(Matching, "revolution/BTE/gki/common/gki_time.c"),
+            Object(Matching, "revolution/BTE/rvl/gki_ppc.c"),
+            Object(NonMatching, "revolution/BTE/hci/src/hcisu_h2.c"),
+            Object(NonMatching, "revolution/BTE/bte_unsplit.o"),
             Object(Matching, "revolution/DB/db.c"),
             Object(Matching, "revolution/DSP/dsp.c"),
             Object(Matching, "revolution/DSP/dsp_debug.c"),
