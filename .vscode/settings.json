@@ -27,5 +27,6 @@
     ".clangd": "yaml"
   },
   // Disable C/C++ IntelliSense, use clangd instead
-  "C_Cpp.intelliSenseEngine": "disabled"
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "python.REPL.enableREPLSmartSend": false
 }
