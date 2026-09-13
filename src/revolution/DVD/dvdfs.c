@@ -160,7 +160,7 @@ s32 DVDConvertPathToEntrynum(const char* path) {
 #if defined (VERSION_RSPE01_00)
 #line 438
 #else
-#line 443
+#line 442
 #endif
             OS_ASSERT(!illegal_format, "DVDConvertEntrynumToPath(possibly DVDOpen or DVDChangeDir or DVDOpenDir): specified directory or file (%s) doesn't match standard 8.3 format. This is a temporary restriction and will be removed soon\n", backup_path);
             // clang-format on
@@ -322,7 +322,7 @@ BOOL DVDReadAsyncPrio(DVDFileInfo* info, void* dst, s32 size, s32 offset,
 #ifdef VERSION_RSPE01_00
 #line 802
 #else
-#line 823
+#line 822
 #endif
     OS_ASSERT(offset >= 0 && offset <= info->size, "DVDReadAsync(): specified area is out of the file  ");
     // clang-format on
@@ -331,7 +331,7 @@ BOOL DVDReadAsyncPrio(DVDFileInfo* info, void* dst, s32 size, s32 offset,
 #ifdef VERSION_RSPE01_00
 #line 808
 #else
-#line 829
+#line 828
 #endif
     OS_ASSERT(offset + size >= 0 && offset + size < info->size + 32, "DVDReadAsync(): specified area is out of the file  ");
     // clang-format on
@@ -361,7 +361,7 @@ s32 DVDReadPrio(DVDFileInfo* info, void* dst, s32 size, s32 offset, s32 prio) {
 #if defined (VERSION_RSPE01_00)
 #line 872
 #else
-#line 893
+#line 892
 #endif
     OS_ASSERT(offset >= 0 && offset <= info->size, "DVDRead(): specified area is out of the file  ");
     // clang-format on
@@ -370,7 +370,7 @@ s32 DVDReadPrio(DVDFileInfo* info, void* dst, s32 size, s32 offset, s32 prio) {
 #if defined (VERSION_RSPE01_00)
 #line 878
 #else
-#line 899
+#line 898
 #endif
     OS_ASSERT(offset + size >= 0 && offset + size < info->size + 32, "DVDRead(): specified area is out of the file  ");
     // clang-format on

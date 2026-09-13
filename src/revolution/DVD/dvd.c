@@ -317,7 +317,7 @@ static void stateReadingFST(void) {
 #if defined (VERSION_RSPE01_00)
 #line 1011
 #else
-#line 1035
+#line 1034
 #endif
     OS_ASSERT(bootInfo->fstSize >= BB2.fstSize, "DVDChangeDisk(): FST in the new disc is too big.   ");
     // clang-format on

@@ -12,7 +12,7 @@ RP_SINGLETON_IMPL_EX(RPSysProjectLocal);
 RPSysProjectLocal::RPSysProjectLocal(EGG::Heap* pHeap)
     : mpParentHeap(pHeap),
 
-#ifdef VERSION_RSPE01_00
+#ifdef VERSION_RSPE01_01
       mRegion(ERegion_NTSC_U),
       mLocale(EArea_USA),
       mLanguage(EArea_USA),

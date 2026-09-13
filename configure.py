@@ -1049,7 +1049,7 @@ config.libs = [
             Object(Matching, "revolution/AXFX/AXFXSrcCoef.c"),
             Object(Matching, "revolution/AXFX/AXFXHooks.c"),
             Object(Matching, "revolution/BASE/PPCArch.c"),
-            Object(Matching, "revolution/BTE/gki/common/gki_buffer.c"),
+            Object(NonMatching, "revolution/BTE/gki/common/gki_buffer.c"),
             Object(Matching, "revolution/BTE/gki/common/gki_time.c"),
             Object(Matching, "revolution/BTE/rvl/gki_ppc.c"),
             Object(NonMatching, "revolution/BTE/hci/src/hcisu_h2.c"),
