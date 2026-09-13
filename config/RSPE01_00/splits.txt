@@ -84,13 +84,16 @@ nw4r/ut/ut_ResFont.cpp:
 
 nw4r/ut/ut_CharWriter.cpp:
 	.text       start:0x8000AB18 end:0x8000C824
+	.bss        start:0x80392EB8 end:0x80392ED8
+	.sbss       start:0x804DF0C8 end:0x804DF0D0
+	.sdata2     start:0x804E0028 end:0x804E0048
 
 nw4r/ut/ut_TextWriterBase.cpp:
 	.text       start:0x8000C824 end:0x800100C4
 	.ctors      start:0x803300BC end:0x803300C0
 	.bss        start:0x80392ED8 end:0x80392EF0
-	.sbss       start:0x804DF0CC end:0x804DF0E0
-	.sdata2     start:0x804E0040 end:0x804E0060
+	.sbss       start:0x804DF0D0 end:0x804DF0E0
+	.sdata2     start:0x804E0048 end:0x804E0060
 
 nw4r/ef/ef_draworder.cpp:
 	.text       start:0x800100C4 end:0x800101C4
@@ -165,8 +168,24 @@ nw4r/math/math_types.cpp:
 	.text       start:0x8002C498 end:0x8002C9A4
 	.sdata2     start:0x804E0480 end:0x804E0490
 
+nw4r/snd/snd_AnimSound.cpp:
+	.text       start:0x8002C9A4 end:0x8002C9F8
+
+nw4r/snd/snd_FrameHeap.cpp:
+	.text       start:0x800356C0 end:0x80035F90
+
+nw4r/snd/snd_FxChorus.cpp:
+	.text       start:0x80035F90 end:0x8003635C
+	.rodata     start:0x80341240 end:0x80341250
+
+nw4r/snd/snd_SoundHeap.cpp:
+	.text       start:0x80041F48 end:0x8004223C
+
 nw4r/db/db_exception.cpp:
 	.text       start:0x8004A630 end:0x8004B4AC
+	.data       start:0x80360288 end:0x80360860
+	.bss        start:0x803ADF50 end:0x803B22C0
+	.sbss       start:0x804DF1F8 end:0x804DF200
 
 runtime/__init_cpp_exceptions.cpp:
 	.text       start:0x8008C894 end:0x8008C904
@@ -204,6 +223,9 @@ revolution/GX/GXBump.c:
 	.text       start:0x800BA288 end:0x800BA6D4
 	.sdata2     start:0x804E11C8 end:0x804E11D0
 
+revolution/GX/GXTev.c:
+	.text       start:0x800BA6D4 end:0x800BAD54
+
 revolution/MTX/mtx.c:
 	.text       start:0x800C11EC end:0x800C1E54
 
@@ -213,6 +235,14 @@ revolution/MTX/mtxvec.c:
 revolution/MTX/mtx44.c:
 	.text       start:0x800C1EA8 end:0x800C20C8
 	.sdata2     start:0x804E1298 end:0x804E12B0
+
+revolution/AXFX/AXFXChorus.c:
+	.text       start:0x800E33A0 end:0x800E3504
+	.sdata2     start:0x804E13F0 end:0x804E1408
+
+revolution/AXFX/AXFXChorusExp.c:
+	.text       start:0x800E3504 end:0x800E3F80
+	.sdata2     start:0x804E1408 end:0x804E1438
 
 revolution/DVD/dvdfs.c:
 	.text       start:0x80112C00 end:0x80113648
