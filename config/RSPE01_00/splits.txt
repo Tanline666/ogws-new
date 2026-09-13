@@ -44,30 +44,43 @@ nw4r/ut/ut_FileStream.cpp:
 nw4r/ut/ut_DvdFileStream.cpp:
 	.text       start:0x80008398 end:0x800089A8
 	.ctors      start:0x803300AC end:0x803300B0
+	.data       start:0x8035D828 end:0x8035D890
+	.sbss       start:0x804DF0B0 end:0x804DF0B8
 
 nw4r/ut/ut_DvdLockedFileStream.cpp:
 	.text       start:0x800089A8 end:0x80008BFC
 	.ctors      start:0x803300B0 end:0x803300B4
+	.data       start:0x8035D890 end:0x8035D8F8
+	.bss        start:0x80392E80 end:0x80392E98
+	.sbss       start:0x804DF0B8 end:0x804DF0C0
 
 nw4r/ut/ut_NandFileStream.cpp:
 	.text       start:0x80008BFC end:0x800098BC
 	.ctors      start:0x803300B4 end:0x803300B8
+	.data       start:0x8035D8F8 end:0x8035D958
+	.sbss       start:0x804DF0C0 end:0x804DF0C8
 
 nw4r/ut/ut_LockedCache.cpp:
 	.text       start:0x800098BC end:0x80009A68
 	.ctors      start:0x803300B8 end:0x803300BC
+	.bss        start:0x80392E98 end:0x80392EB8
 
 nw4r/ut/ut_Font.cpp:
 	.text       start:0x80009A68 end:0x80009B10
+	.data       start:0x8035D958 end:0x8035D988
 
 nw4r/ut/ut_RomFont.cpp:
 	.text       start:0x80009B10 end:0x8000A244
+	.data       start:0x8035D988 end:0x8035DA48
+	.sdata      start:0x804DDAE0 end:0x804DDAE8
 
 nw4r/ut/ut_ResFontBase.cpp:
 	.text       start:0x8000A244 end:0x8000A814
+	.data       start:0x8035DA48 end:0x8035DAB0
 
 nw4r/ut/ut_ResFont.cpp:
 	.text       start:0x8000A814 end:0x8000AB18
+	.data       start:0x8035DAB0 end:0x8035DB08
 
 nw4r/ut/ut_CharWriter.cpp:
 	.text       start:0x8000AB18 end:0x8000C824
@@ -75,6 +88,9 @@ nw4r/ut/ut_CharWriter.cpp:
 nw4r/ut/ut_TextWriterBase.cpp:
 	.text       start:0x8000C824 end:0x800100C4
 	.ctors      start:0x803300BC end:0x803300C0
+	.bss        start:0x80392ED8 end:0x80392EF0
+	.sbss       start:0x804DF0CC end:0x804DF0E0
+	.sdata2     start:0x804E0040 end:0x804E0060
 
 nw4r/ef/ef_draworder.cpp:
 	.text       start:0x800100C4 end:0x800101C4
@@ -217,6 +233,9 @@ revolution/DVD/dvdqueue.c:
 
 revolution/DVD/dvderror.c:
 	.text       start:0x80117BD0 end:0x80117ED8
+	.data       start:0x8037E7F8 end:0x8037E828
+	.bss        start:0x80443680 end:0x80443860
+	.sbss       start:0x804DF948 end:0x804DF950
 
 revolution/DVD/dvdidutils.c:
 	.text       start:0x80117ED8 end:0x80117FC8
