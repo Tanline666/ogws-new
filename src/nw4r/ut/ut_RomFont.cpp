@@ -15,8 +15,11 @@ inline bool IsSJISHalfWidthChar(u16 ch) {
     if (ch > 0xFF) {
         return false;
     }
-
+#ifdef VERSION_RSPE01_00
+    return (ch >= 0x20 && ch <= 0x7E) || (ch >= 0xA1 && ch <= 0xCF);
+#else
     return (ch >= 0x20 && ch <= 0x7E) || (ch >= 0xA1 && ch <= 0xDF);
+#endif
 }
 
 inline bool IsSJISFullWidthChar(u16 ch) {
