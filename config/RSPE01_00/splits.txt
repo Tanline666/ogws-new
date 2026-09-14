@@ -187,6 +187,28 @@ nw4r/db/db_exception.cpp:
 	.bss        start:0x803ADF50 end:0x803B22C0
 	.sbss       start:0x804DF1F8 end:0x804DF200
 
+egg/core/eggStream.cpp:
+	.text       start:0x800831DC end:0x80085A70
+	.rodata     start:0x80343720 end:0x80343870
+	.data       start:0x80361990 end:0x803619A8
+	.bss        start:0x803D0060 end:0x803D0460
+
+egg/core/eggDisplay.cpp:
+	.text       start:0x80085A70 end:0x80085DA8
+	.data       start:0x803619A8 end:0x803619C8
+	.sdata2     start:0x804E0B38 end:0x804E0B48
+
+egg/core/eggVideo.cpp:
+	.text       start:0x80085DA8 end:0x80086014
+	.sdata2     start:0x804E0B48 end:0x804E0B58
+
+egg/core/eggXfb.cpp:
+	.text       start:0x80086014 end:0x80086118
+	.rodata     start:0x80343870 end:0x803438A0
+
+egg/core/eggXfbManager.cpp:
+	.text       start:0x80086118 end:0x800862C4
+
 runtime/__init_cpp_exceptions.cpp:
 	.text       start:0x8008C894 end:0x8008C904
 	.ctors      start:0x803300A0 end:0x803300A4 rename:.ctors$10
@@ -235,6 +257,23 @@ revolution/MTX/mtxvec.c:
 revolution/MTX/mtx44.c:
 	.text       start:0x800C1EA8 end:0x800C20C8
 	.sdata2     start:0x804E1298 end:0x804E12B0
+
+revolution/SC/scsystem.c:
+	.text       start:0x800D0B54 end:0x800D2484
+	.rodata     start:0x80345148 end:0x803451A0
+	.data       start:0x80371C80 end:0x80371E00
+	.bss        start:0x803E52A0 end:0x803ED440
+	.sdata      start:0x804DDE10 end:0x804DDEE8
+	.sbss       start:0x804DF5E0 end:0x804DF5F8
+
+revolution/SC/scapi.c:
+	.text       start:0x800D2484 end:0x800D285C
+
+revolution/VI/i2c.c:
+	.text       start:0x800D6120 end:0x800D6B3C
+
+revolution/VI/vi3in1.c:
+	.text       start:0x800D6B3C end:0x800D81F0
 
 revolution/AXFX/AXFXChorus.c:
 	.text       start:0x800E33A0 end:0x800E3504

@@ -320,20 +320,22 @@ BOOL DVDReadAsyncPrio(DVDFileInfo* info, void* dst, s32 size, s32 offset,
                       DVDAsyncCallback callback, s32 prio) {
     // clang-format off
 #ifdef VERSION_RSPE01_00
-#line 802
-#else
-#line 822
-#endif
+#line 805
     OS_ASSERT(offset >= 0 && offset <= info->size, "DVDReadAsync(): specified area is out of the file  ");
+#else
+#line 823
+    OS_ASSERT(offset >= 0 && offset <= info->size, "DVDReadAsync(): specified area is out of the file  ");
+#endif
     // clang-format on
 
     // clang-format off
 #ifdef VERSION_RSPE01_00
-#line 808
-#else
-#line 828
-#endif
+#line 811
     OS_ASSERT(offset + size >= 0 && offset + size < info->size + 32, "DVDReadAsync(): specified area is out of the file  ");
+#else
+#line 829
+    OS_ASSERT(offset + size >= 0 && offset + size < info->size + 32, "DVDReadAsync(): specified area is out of the file  ");
+#endif
     // clang-format on
 
     info->callback = callback;
@@ -359,20 +361,22 @@ s32 DVDReadPrio(DVDFileInfo* info, void* dst, s32 size, s32 offset, s32 prio) {
 
     // clang-format off
 #if defined (VERSION_RSPE01_00)
-#line 872
-#else
-#line 892
-#endif
+#line 875
     OS_ASSERT(offset >= 0 && offset <= info->size, "DVDRead(): specified area is out of the file  ");
+#else
+#line 893
+    OS_ASSERT(offset >= 0 && offset <= info->size, "DVDRead(): specified area is out of the file  ");
+#endif
     // clang-format on
 
     // clang-format off
 #if defined (VERSION_RSPE01_00)
-#line 878
-#else
-#line 898
-#endif
+#line 881
     OS_ASSERT(offset + size >= 0 && offset + size < info->size + 32, "DVDRead(): specified area is out of the file  ");
+#else
+#line 899
+    OS_ASSERT(offset + size >= 0 && offset + size < info->size + 32, "DVDRead(): specified area is out of the file  ");
+#endif
     // clang-format on
 
     block = &info->block;
