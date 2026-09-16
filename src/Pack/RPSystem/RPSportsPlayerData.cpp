@@ -498,9 +498,15 @@ void RPSportsPlayerData::setBowTrainingBest(u16 score, EGame game) {
  *
  * @param course Golf course ID
  */
+#ifdef VERSION_RSPE01_00
+u8 RPSportsPlayerData::getGolStandardBest(ECourse course) const {
+    return mGolStandardBests[course];
+}
+#else
 s8 RPSportsPlayerData::getGolStandardBest(ECourse course) const {
     return mGolStandardBests[course];
 }
+#endif
 
 /**
  * @brief Sets the best Golf score on the specified course

@@ -168,16 +168,20 @@ typedef struct WPADExtConfig {
 typedef struct WPADCB {
     WPADGameInfo gameInfo; // at 0x0
     s32 UNK_0x38[2];
-    u8 rxBufMain[RX_BUFFER_SIZE];      // at 0x40
-    u8 rxBufs[2][RX_BUFFER_SIZE];      // at 0xA0
-    WPADCommandQueue stdCmdQueue;      // at 0x160
-    WPADCommand stdCmdQueueList[24];   // at 0x16C
-    WPADCommandQueue extCmdQueue;      // at 0x5EC
-    WPADCommand extCmdQueueList[12];   // at 0x5F8
-    WPADInfo wpInfo;                   // at 0x838
-    WPADInfo* wpInfoOut;               // at 0x850
-    WPADDevConfig devConfig;           // at 0x854
-    WPADExtConfig extConfig;           // at 0x882
+    u8 rxBufMain[RX_BUFFER_SIZE];    // at 0x40
+    u8 rxBufs[2][RX_BUFFER_SIZE];    // at 0xA0
+    WPADCommandQueue stdCmdQueue;    // at 0x160
+    WPADCommand stdCmdQueueList[24]; // at 0x16C
+    WPADCommandQueue extCmdQueue;    // at 0x5EC
+#ifdef VERSION_RSPE01_00
+    WPADCommand extCmdQueueList[8]; // at 0x5F8
+#else
+    WPADCommand extCmdQueueList[12]; // at 0x5F8
+#endif
+    WPADInfo wpInfo;                   // at 0x778 (v0) 0x838 (v1)
+    WPADInfo* wpInfoOut;               // at 0x790 (v0) 0x850 (v1)
+    WPADDevConfig devConfig;           // at 0x794 (v0) 0x854 (v1)
+    WPADExtConfig extConfig;           // at 0x7C2 (v0) 0x882 (v1)
     WPADCallback cmdBlkCB;             // at 0x89C
     WPADExtensionCallback extensionCB; // at 0x8A0
     WPADConnectCallback connectCB;     // at 0x8A4

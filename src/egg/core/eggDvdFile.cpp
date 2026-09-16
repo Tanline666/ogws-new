@@ -45,8 +45,13 @@ void DvdFile::initiate() {
 }
 
 bool DvdFile::open(s32 entryNum) {
+#ifdef VERSION_RSPE01_00
+    if (!mIsOpen) {
+        mIsOpen = DVDOpen((const char*)entryNum, &mAsyncContext.fileInfo);
+#else
     if (!mIsOpen && entryNum != -1) {
         mIsOpen = DVDFastOpen(entryNum, &mAsyncContext.fileInfo);
+#endif
 
         if (mIsOpen) {
             nw4r::ut::List_Append(&sDvdList, this);

@@ -58,12 +58,34 @@ public:
      */
     RPPartySystemData();
 
+#ifdef VERSION_RSPE01_00
+    /**
+     * @brief Resets the data to a default save state
+     */
+    void reset();
+#endif
+
     /**
      * @brief Tests whether the specified minigame is available
      *
      * @param idx Minigame index
      */
     bool isGameOpen(s32 idx) const;
+
+#ifdef VERSION_RSPE01_00
+    /**
+     * @brief Deserializes this object from the specified stream
+     *
+     * @param rStrm Memory stream
+     */
+    void read(EGG::RamStream& rStrm);
+    /**
+     * @brief Serializes this object to the specified stream
+     *
+     * @param rStrm Memory stream
+     */
+    void write(EGG::RamStream& rStrm);
+#endif
 
 private:
     /**

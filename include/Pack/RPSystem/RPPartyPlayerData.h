@@ -107,6 +107,21 @@ public:
     void setDebutTime(RPTime32 time);
     /**@}*/
 
+#ifdef VERSION_RSPE01_00
+    /**
+     * @brief Deserializes this object from the specified stream
+     *
+     * @param rStrm Memory stream
+     */
+    void read(EGG::RamStream& rStrm);
+    /**
+     * @brief Serializes this object to the specified stream
+     *
+     * @param rStrm Memory stream
+     */
+    void write(EGG::RamStream& rStrm);
+#endif
+
 private:
     /**
      * @brief Player data flags

@@ -30,9 +30,11 @@ public:
     Heap* getHeap_Mem2() const {
         return mHeap_Mem2;
     }
+#ifdef VERSION_RSPE01_01
     Heap* getHeap_Debug() const {
         return mHeap_Debug;
     }
+#endif
 
     Scene* getParentScene() const {
         return mParentScene;
@@ -63,14 +65,16 @@ public:
     }
 
 private:
-    Heap* mHeap;             // at 0x4
-    Heap* mHeap_Mem1;        // at 0x8
-    Heap* mHeap_Mem2;        // at 0xC
-    Heap* mHeap_Debug;       // at 0x10
-    Scene* mParentScene;     // at 0x14
-    Scene* mChildScene;      // at 0x18
-    s32 mSceneID;            // at 0x1C
-    SceneManager* mSceneMgr; // at 0x20
+    Heap* mHeap;      // at 0x4
+    Heap* mHeap_Mem1; // at 0x8
+    Heap* mHeap_Mem2; // at 0xC
+#ifdef VERSION_RSPE01_01
+    Heap* mHeap_Debug; // at 0x10
+#endif
+    Scene* mParentScene;     // at 0x10 (v0), 0x14 (v1)
+    Scene* mChildScene;      // at 0x14 (v0), 0x18 (v1)
+    s32 mSceneID;            // at 0x18 (v0), 0x1C (v1)
+    SceneManager* mSceneMgr; // at 0x1C (v0), 0x20 (v1)
 };
 
 } // namespace EGG

@@ -97,14 +97,17 @@ nw4r/ut/ut_TextWriterBase.cpp:
 
 nw4r/ef/ef_draworder.cpp:
 	.text       start:0x800100C4 end:0x800101C4
+	.data       start:0x8035DB08 end:0x8035DB20
 
 nw4r/ef/ef_effect.cpp:
 	.text       start:0x800101C4 end:0x80010D14
 	.ctors      start:0x803300C0 end:0x803300C4
+	.data       start:0x8035DB20 end:0x8035DB30
 
 nw4r/ef/ef_effectsystem.cpp:
 	.text       start:0x80010D14 end:0x800113D4
 	.ctors      start:0x803300C4 end:0x803300C8
+	.bss        start:0x80392EF0 end:0x80397F58
 
 nw4r/ef/ef_emitter.cpp:
 	.text       start:0x800113D4 end:0x80013270
@@ -187,6 +190,24 @@ nw4r/db/db_exception.cpp:
 	.bss        start:0x803ADF50 end:0x803B22C0
 	.sbss       start:0x804DF1F8 end:0x804DF200
 
+egg/core/eggHeap.cpp:
+	.text       start:0x8007E71C end:0x8007EF0C
+	.rodata     start:0x80343290 end:0x80343350
+	.data       start:0x80361770 end:0x803617A0
+	.bss        start:0x803CF968 end:0x803CF990
+	.sbss       start:0x804DF278 end:0x804DF288
+	.sdata2     start:0x804E0AD8 end:0x804E0AF0
+
+egg/core/eggAllocator.cpp:
+	.text       start:0x8007EF0C end:0x8007EFA4
+	.data       start:0x803617A0 end:0x803617B8
+
+egg/core/eggController.cpp:
+	.text       start:0x8008153C end:0x800831DC
+	.ctors      start:0x80330120 end:0x80330124
+	.rodata     start:0x80343578 end:0x80343720
+	.sdata2     start:0x804E0B18 end:0x804E0B38
+
 egg/core/eggStream.cpp:
 	.text       start:0x800831DC end:0x80085A70
 	.rodata     start:0x80343720 end:0x80343870
@@ -209,12 +230,97 @@ egg/core/eggXfb.cpp:
 egg/core/eggXfbManager.cpp:
 	.text       start:0x80086118 end:0x800862C4
 
+egg/core/eggDvdRipper.cpp:
+	.text       start:0x800862C4 end:0x8008654C
+	.rodata     start:0x803438A0 end:0x80343908
+	.sdata      start:0x804DDC10 end:0x804DDC18
+
+egg/core/eggDvdFile.cpp:
+	.text       start:0x8008654C end:0x80086844
+	.data       start:0x803619C8 end:0x803619E8
+	.bss        start:0x803D0460 end:0x803D0470
+	.sbss       start:0x804DF2C8 end:0x804DF2D0
+
+egg/core/eggException.cpp:
+	.text       start:0x80086844 end:0x80086D50
+
+egg/core/eggScene.cpp:
+	.text       start:0x80086D50 end:0x80086E18
+	.rodata     start:0x80343978 end:0x80343998
+	.data       start:0x803619F8 end:0x80361A20
+
+egg/core/eggProcessMeter.cpp:
+	.text       start:0x80086E18 end:0x80087C38
+	.data       start:0x80361A20 end:0x80361A68
+	.sdata2     start:0x804E0B58 end:0x804E0B90
+
+egg/core/eggDisposer.cpp:
+	.text       start:0x80087C38 end:0x80087D00
+	.data       start:0x80361A68 end:0x80361A78
+
+runtime/__mem.c:
+	.init       start:0x80004000 end:0x80004134
+	.text       start:0x8008BD5C end:0x8008BD78
+
+runtime/__va_arg.c:
+	.text       start:0x8008BD78 end:0x8008BE40
+
+runtime/global_destructor_chain.c:
+	.text       start:0x8008BE40 end:0x8008BEA0
+	.sbss       start:0x804DF328 end:0x804DF330
+
+runtime/NMWException.c:
+	extab       start:0x800064E0 end:0x80006520
+	extabindex  start:0x80006B40 end:0x80006B70
+	.text       start:0x8008BEA0 end:0x8008C1D0
+
+runtime/ptmf.c:
+	.text       start:0x8008C1D0 end:0x8008C228
+	.rodata     start:0x80343D98 end:0x80343DA8
+
+runtime/runtime.c:
+	.text       start:0x8008C228 end:0x8008C894
+	.rodata     start:0x80343DA8 end:0x80343DC0
+
 runtime/__init_cpp_exceptions.cpp:
 	.text       start:0x8008C894 end:0x8008C904
 	.ctors      start:0x803300A0 end:0x803300A4 rename:.ctors$10
 	.dtors      start:0x80330280 end:0x80330284 rename:.dtors$10
 	.dtors      start:0x80330284 end:0x80330288 rename:.dtors$15
 	.sdata      start:0x804DDC28 end:0x804DDC30
+
+runtime/Gecko_ExceptionPPC.c:
+	.text       start:0x8008C904 end:0x8008C968
+	.bss        start:0x803D04A0 end:0x803D04B0
+
+runtime/GCN_mem_alloc.c:
+	.text       start:0x8008C968 end:0x8008CA20
+	.rodata     start:0x80343DC0 end:0x80343E30
+
+MSL/alloc.c:
+	extab       start:0x80006520 end:0x80006538
+	extabindex  start:0x80006B70 end:0x80006B94
+	.text       start:0x8008CA20 end:0x8008CF34
+	.rodata     start:0x80343E30 end:0x80343E48
+	.bss        start:0x803D04B0 end:0x803D04E8
+	.sbss       start:0x804DF330 end:0x804DF338
+
+MSL/errno.c:
+	.sbss       start:0x804DF338 end:0x804DF340
+
+MSL/ansi_files.c:
+	extab       start:0x80006538 end:0x80006548
+	extabindex  start:0x80006B94 end:0x80006BAC
+	.text       start:0x8008CF34 end:0x8008D044
+	.data       start:0x80361C78 end:0x80361CC8
+
+MSL/ansi_fp.c:
+	extab       start:0x80006548 end:0x80006580
+	extabindex  start:0x80006BAC end:0x80006C00
+	.text       start:0x8008D044 end:0x8008E9B4
+	.rodata     start:0x80343E48 end:0x80344430
+	.data       start:0x80361CC8 end:0x80361F20
+	.sdata2     start:0x804E0BB8 end:0x804E0C08
 
 MSL/k_sin.c:
 	.text       start:0x8009A6A0 end:0x8009A760
@@ -225,6 +331,14 @@ MSL/k_tan.c:
 	.rodata     start:0x80344CB8 end:0x80344D20
 	.sdata2     start:0x804E0FC8 end:0x804E1000
 
+revolution/PAD/Pad.c:
+	.text       start:0x800A4B9C end:0x800A4BF8
+	.sbss       start:0x804DF3B0 end:0x804DF3B8
+
+revolution/WPAD/WPAD.c:
+	.text       start:0x800A4BF8 end:0x800ABDD4
+	.sdata      start:0x804DDCC8 end:0x804DDCD8
+
 revolution/EXI/EXIBios.c:
 	.text       start:0x800B0DF8 end:0x800B268C
 	.data       start:0x80363930 end:0x80363978
@@ -234,6 +348,26 @@ revolution/EXI/EXIBios.c:
 
 revolution/GX/GXInit.c:
 	.text       start:0x800B40CC end:0x800B5294
+	.data       start:0x803639A0 end:0x80363BE0
+	.bss        start:0x803D7210 end:0x803D7890
+	.sdata      start:0x804DDCF0 end:0x804DDCF8
+	.sbss       start:0x804DF430 end:0x804DF458
+	.sdata2     start:0x804E1120 end:0x804E1148
+
+revolution/GX/GXFifo.c:
+	.text       start:0x800B5294 end:0x800B5E40
+	.data       start:0x80363BE0 end:0x80363C10
+	.bss        start:0x803D7890 end:0x803D78D8
+	.sbss       start:0x804DF458 end:0x804DF480
+
+revolution/GX/GXAttr.c:
+	.text       start:0x800B5E40 end:0x800B7064
+	.data       start:0x80363C10 end:0x80363E88
+	.sdata      start:0x804DDCF8 end:0x804DDD08
+
+revolution/GX/GXMisc.c:
+	.text       start:0x800B7064 end:0x800B7914
+	.sbss       start:0x804DF480 end:0x804DF490
 
 revolution/GX/GXGeometry.c:
 	.text       start:0x800B7914 end:0x800B7ECC
@@ -309,6 +443,91 @@ revolution/DVD/dvderror.c:
 revolution/DVD/dvdidutils.c:
 	.text       start:0x80117ED8 end:0x80117FC8
 
+RVLFaceLib/RFL_System.c:
+	extab       start:0x800066B0 end:0x800066E0
+	extabindex  start:0x80006DC8 end:0x80006E10
+	.text       start:0x8013B9E4 end:0x8013C490
+	.sdata      start:0x804DE1B8 end:0x804DE1C0
+	.sbss       start:0x804DFA00 end:0x804DFA10
+
+RVLFaceLib/RFL_NANDLoader.c:
+	extab       start:0x800066E0 end:0x80006760
+	extabindex  start:0x80006E10 end:0x80006ED0
+	.text       start:0x8013C490 end:0x8013D4BC
+	.rodata     start:0x803499D8 end:0x80349A68
+	.data       start:0x80380158 end:0x80380178
+	.sdata      start:0x804DE1C0 end:0x804DE1C8
+
+RVLFaceLib/RFL_NANDAccess.c:
+	extab       start:0x80006760 end:0x80006838
+	extabindex  start:0x80006ED0 end:0x80007014
+	.text       start:0x8013D4BC end:0x80140A00
+	.data       start:0x80380178 end:0x803801E8
+	.sdata      start:0x804DE1C8 end:0x804DE1D8
+	.sdata2     start:0x804E14B0 end:0x804E14B8
+	.sbss2      start:0x804E6D60 end:0x804E6D68
+
+RVLFaceLib/RFL_Model.c:
+	extab       start:0x80006838 end:0x800068A8
+	extabindex  start:0x80007014 end:0x800070BC
+	.text       start:0x80140A00 end:0x80142CC0
+	.rodata     start:0x80349A68 end:0x80349B50
+	.data       start:0x803801E8 end:0x803801F8
+	.sdata2     start:0x804E14B8 end:0x804E14F8
+
+RVLFaceLib/RFL_MakeTex.c:
+	extab       start:0x800068A8 end:0x800068E8
+	extabindex  start:0x800070BC end:0x8000711C
+	.text       start:0x80142CC0 end:0x8014555C
+	.rodata     start:0x80349B78 end:0x80349C38
+	.sdata2     start:0x804E14F8 end:0x804E15B8
+
+RVLFaceLib/RFL_HiddenDatabase.c:
+	extab       start:0x800068E8 end:0x80006978
+	extabindex  start:0x8000711C end:0x800071F4
+	.text       start:0x8014555C end:0x8014630C
+
+RVLFaceLib/RFL_Database.c:
+	extab       start:0x80006978 end:0x80006A10
+	extabindex  start:0x800071F4 end:0x800072D8
+	.text       start:0x8014630C end:0x801473B8
+
+RVLFaceLib/RFL_Controller.c:
+	extab       start:0x80006A10 end:0x80006A48
+	extabindex  start:0x800072D8 end:0x8000732C
+	.text       start:0x801473B8 end:0x80147D00
+
+RVLFaceLib/RFL_MiddleDatabase.c:
+	extab       start:0x80006A48 end:0x80006AA0
+	extabindex  start:0x8000732C end:0x800073B0
+	.text       start:0x80147D00 end:0x80148AA0
+
+RVLFaceLib/RFL_MakeRandomFace.c:
+	extab       start:0x80006AA0 end:0x80006AC0
+	extabindex  start:0x800073B0 end:0x800073E0
+	.text       start:0x80148AA0 end:0x80149864
+	.rodata     start:0x80349C38 end:0x8034A690
+	.data       start:0x803801F8 end:0x80380838
+
+RVLFaceLib/RFL_DefaultDatabase.c:
+	.text       start:0x80149864 end:0x8014987C
+	.rodata     start:0x8034A690 end:0x8034A850
+
+RVLFaceLib/RFL_DataUtility.c:
+	extab       start:0x80006AC0 end:0x80006AD8
+	extabindex  start:0x800073E0 end:0x80007404
+	.text       start:0x8014987C end:0x80149F40
+
+RVLFaceLib/RFL_NWC24.c:
+	extab       start:0x80006AD8 end:0x80006AE0
+	extabindex  start:0x80007404 end:0x80007410
+	.text       start:0x80149F40 end:0x8014A00C
+
+RVLFaceLib/RFL_Format.c:
+	extab       start:0x80006AE0 end:0x80006B28
+	extabindex  start:0x80007410 end:0x8000747C
+	.text       start:0x8014A00C end:0x8014A528
+
 Pack/RPKernel/RPSysSystem.cpp:
 	.text       start:0x801551E4 end:0x80156448
 	.ctors      start:0x80330128 end:0x8033012C
@@ -318,3 +537,125 @@ main.cpp:
 
 Pack/RPSystem/RPSysSceneCreator.cpp:
 	.text       start:0x801564CC end:0x8015736C
+
+Pack/RPSystem/RPSysScene.cpp:
+	.text       start:0x8015736C end:0x80157ADC
+	.ctors      start:0x8033012C end:0x80330130
+	.data       start:0x803815E0 end:0x80381640
+	.sbss       start:0x804DFA48 end:0x804DFA50
+
+Pack/RPSystem/RPSysRenderMode.cpp:
+	.text       start:0x80157ADC end:0x80157B98
+	.rodata     start:0x8034B770 end:0x8034B788
+	.data       start:0x80381640 end:0x80381770
+
+Pack/RPSystem/RPSysSceneMgr.cpp:
+	.text       start:0x80157B98 end:0x801585E4
+	.data       start:0x80381770 end:0x803817B8
+	.sbss       start:0x804DFA50 end:0x804DFA58
+	.sdata2     start:0x804E1660 end:0x804E1670
+
+Pack/RPSystem/RPSysProjectLocal.cpp:
+	.text       start:0x801585E4 end:0x801587E0
+	.rodata     start:0x8034B788 end:0x8034B7A8
+	.data       start:0x803817B8 end:0x803817E8
+	.sbss       start:0x804DFA58 end:0x804DFA60
+
+Pack/RPSystem/RPSysGameConfig.cpp:
+	.text       start:0x801587E0 end:0x8015898C
+	.rodata     start:0x8034B7A8 end:0x8034B7F8
+	.data       start:0x803817E8 end:0x80381808
+	.sbss       start:0x804DFA60 end:0x804DFA68
+
+Pack/RPSystem/RPSysTagParms.cpp:
+	.text       start:0x8015898C end:0x80158AC4
+	.data       start:0x80381808 end:0x80381830
+
+Pack/RPSystem/RPSysLoadScene.cpp:
+	.text       start:0x80158AC4 end:0x80158FA4
+	.rodata     start:0x8034B7F8 end:0x8034B840
+	.sdata2     start:0x804E1670 end:0x804E167C
+
+Pack/RPSystem/RPSysResourceManager.cpp:
+	.text       start:0x80158FA4 end:0x80159B0C
+	.rodata     start:0x8034B850 end:0x8034B900
+	.data       start:0x80381830 end:0x80381850
+
+Pack/RPSystem/RPSysQueuedScene.cpp:
+	.text       start:0x80159B0C end:0x80159BC8
+	.data       start:0x80381850 end:0x80381860
+	.sbss       start:0x804DFA70 end:0x804DFA78
+
+Pack/RPSystem/RPSysCommonObject.cpp:
+	.text       start:0x80159BC8 end:0x80159F70
+	.data       start:0x80381860 end:0x80381880
+
+Pack/RPSystem/RPSysDvdStatus.cpp:
+	.text       start:0x80159F70 end:0x8015A354
+	.rodata     start:0x8034B900 end:0x8034BFD8
+	.data       start:0x80381880 end:0x80381970
+	.sdata      start:0x804DE2A0 end:0x804DE2A8
+	.sbss       start:0x804DFA78 end:0x804DFA80
+	.sdata2     start:0x804E1688 end:0x804E16A0
+
+Pack/RPSystem/RPSysSaveDataMgr.cpp:
+	.text       start:0x8015A354 end:0x8015C91C
+	.rodata     start:0x8034BFD8 end:0x8034C030
+	.data       start:0x80381970 end:0x80381988
+	.sdata      start:0x804DE2A8 end:0x804DE2B8
+	.sbss       start:0x804DFA80 end:0x804DFA88
+
+Pack/RPSystem/RPSportsSystemData.cpp:
+	.text       start:0x8015C91C end:0x8015CD80
+	.rodata     start:0x8034C030 end:0x8034C050
+
+Pack/RPSystem/RPSportsPlayerData.cpp:
+	.text       start:0x8015CD80 end:0x8015DCE8
+	.sdata2     start:0x804E16A0 end:0x804E16A8
+
+Pack/RPSystem/RPSysFontManager.cpp:
+	.text       start:0x8015DCE8 end:0x8015DF60
+	.rodata     start:0x8034C050 end:0x8034C0F8
+	.data       start:0x80381988 end:0x803819B0
+	.sbss       start:0x804DFA88 end:0x804DFA90
+
+Pack/RPSystem/RPSysSaveData.cpp:
+	.text       start:0x8015DF60 end:0x8015ECA8
+
+Pack/RPSystem/RPSysPauseMgr.cpp:
+	.text       start:0x8015ECA8 end:0x8015F774
+
+Pack/RPSystem/RPPartySystemData.cpp:
+	.text       start:0x8015F774 end:0x8015F960
+
+Pack/RPSystem/RPPartyPlayerData.cpp:
+	.text       start:0x8015F960 end:0x8015FC54
+
+Pack/RPSystem/RPSysPlayerMgr.cpp:
+	.text       start:0x8015FC54 end:0x80160AD4
+	.rodata     start:0x8034C138 end:0x8034C198
+	.data       start:0x803819C0 end:0x803819CC
+	.sbss       start:0x804DFA98 end:0x804DFAA0
+	.sdata2     start:0x804E16B0 end:0x804E16B8
+
+Pack/RPSystem/RPSysPlayer.cpp:
+	.text       start:0x80160AD4 end:0x80162CB8
+
+Pack/RPKernel/IRPSysHostIOSocket.cpp:
+	.text       start:0x80162CB8 end:0x80162D64
+	.data       start:0x803819D0 end:0x803819E4
+
+Pack/RPKernel/RPSysHostIOSocketManager.cpp:
+	.text       start:0x80162D64 end:0x80162DE8
+	.data       start:0x803819E8 end:0x803819F4
+	.sbss       start:0x804DFAA0 end:0x804DFAA4
+
+Pack/RPKernel/RP_DEBUG_STUB_0.cpp:
+	.text       start:0x80162DE8 end:0x80162DF0
+	.sbss       start:0x804DFAA8 end:0x804DFAAC
+
+Pack/RPKernel/RPSysTextWriter.cpp:
+	.text       start:0x80162DF0 end:0x80163240
+	.data       start:0x803819F8 end:0x80381A04
+	.sbss       start:0x804DFAB0 end:0x804DFAB4
+	.sdata2     start:0x804E16B8 end:0x804E16CC

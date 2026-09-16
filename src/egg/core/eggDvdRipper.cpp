@@ -15,13 +15,19 @@ u8* DvdRipper::loadToMainRAM(const char* pPath, u8* pBuffer, Heap* pHeap,
                              EAllocDirection allocDir, u32 offset, u32* pRead,
                              u32* pSize) {
 
-    DvdFile file;
+    DvdFile dvdFile;
 
-    if (!file.open(pPath)) {
+#ifdef VERSION_RSPE01_00
+    if (!dvdFile.open((s32)pPath)) {
+        EGG_PRINT("dvdFile.open(%s) == NULL\n", pPath);
+#else
+    if (!dvdFile.open(pPath)) {
+#endif
         return NULL;
     }
 
-    return loadToMainRAM(&file, pBuffer, pHeap, allocDir, offset, pRead, pSize);
+    return loadToMainRAM(&dvdFile, pBuffer, pHeap, allocDir, offset, pRead,
+                         pSize);
 }
 
 u8* DvdRipper::loadToMainRAM(DvdFile* pFile, u8* pBuffer, Heap* pHeap,
@@ -106,7 +112,9 @@ u8* DvdRipper::loadToMainRAM(DvdFile* pFile, u8* pBuffer, Heap* pHeap,
     return pBuffer;
 }
 
+#ifdef VERSION_RSPE01_01
 DECOMP_FORCEACTIVE(eggDvdRipper_cpp,
                   "read Header Failed\n");
+#endif
 
 } // namespace EGG
