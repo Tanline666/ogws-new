@@ -418,12 +418,16 @@ IScnObjGather::CullingStatus ScnObjGather::Add(ScnObj* pObj, bool opa,
     if (opa) {
         if (mNumScnObjOpa < mSizeScnObj) {
             mpArrayOpa[mNumScnObjOpa++] = pObj;
+        } else {
+            return status;
         }
     }
 
     if (xlu) {
         if (mNumScnObjXlu < mSizeScnObj) {
             mpArrayXlu[mNumScnObjXlu++] = pObj;
+        } else {
+            return status;
         }
     }
 
