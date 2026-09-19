@@ -1,7 +1,7 @@
 #ifndef NW4R_DB_EXCEPTION_H
 #define NW4R_DB_EXCEPTION_H
 
-#ifdef VERSION_RSPE01_00
+#include <nw4r/types_nw4r.h>
 
 #include <nw4r/db/db_console.h>
 
@@ -38,7 +38,7 @@ struct ExceptionCallbackParam {
  * @param arg The specified callback argument.
  * @return bool: Returns TRUE if the callback is executed more than once.
  */
-typedef bool (*ExceptionUserCallback)(ConsoleHandle console, void* arg);
+typedef bool (*ExceptionUserCallback)(ConsoleHandle pConsole, void* pArg);
 
 struct ExceptionHead {
     OSThread thread;                   // at 0x0
@@ -60,22 +60,6 @@ struct ExceptionHead {
  */
 void Exception_Init();
 
-static void ErrorHandler_(u16 error, OSContext* context, u32 dsisr, u32 dar);
-
-static void* RunThread_(void* arg);
-
-static void DumpException_(const ExceptionCallbackParam* exPtr);
-
-static void Exception_Printf_(const char* fmt, ...);
-
-static void PrintContext_(u16 error, const OSContext* context, u32 dsisr,
-                          u32 dar);
-
-static void ShowMainInfo_(u16 error, const OSContext* context, u32 dsisr,
-                          u32 dar);
-
-static void setFPException(u32 type);
-
 /**
  * @brief Sets the console for displaying exception info.
  *
@@ -84,7 +68,7 @@ static void setFPException(u32 type);
  * @return ConsoleHandle: The console prior to executing the function.
  */
 ConsoleHandle Exception_SetConsole(ConsoleHandle console,
-                                   const GXRenderModeObj* renderMode);
+                                   const GXRenderModeObj* pRenderMode);
 
 /**
  * @brief Returns the currently set console for displaying exception info.
@@ -99,7 +83,7 @@ ConsoleHandle Exception_GetConsole();
  * @param callback Callback function itself.
  * @param arg Argument to be passed to callback.
  */
-void Exception_SetUserCallback(ExceptionUserCallback callback, void* arg);
+void Exception_SetUserCallback(ExceptionUserCallback callback, void* pArg);
 
 /**
  * @brief Sets which info is to be displayed/reported on screen or by serial.
@@ -108,23 +92,8 @@ void Exception_SetUserCallback(ExceptionUserCallback callback, void* arg);
  * @param info The new display info setting.
  * @return ExceptionDisplayInfo: The prior display info setting.
  */
-u16 Exception_SetDisplayInfo(u16 info);
-
-static ExceptionHead sException;
-// TODO(texline) why?
-static u8 sThreadBuffer[16384];
-static OSMessage sMsgBuffer[1];
-
-static const char* CPU_EXP_NAME[] = {
-    "SYSTEM RESET",       "MACHINE CHECK",    "DSI",     "ISI",
-    "EXTERNAL INTERRUPT", "ALIGNMENT",        "PROGRAM", "FLOATING POINT",
-    "DECREMENTER",        "SYSTEM CALL",      "TRACE",   "PERFORMACE MONITOR",
-    "BREAK POINT",        "SYSTEM INTERRUPT",
-    "THERMAL INTERRUPT", // unused
-    "PROTECTION",         "FLOATING POINT"};
+u16 Exception_SetDisplayInfo(u16 pInfo);
 } // namespace db
 } // namespace nw4r
 
-#endif // VERSION_RSPE01_00
-
-#endif // NW4R_DB_EXCEPTION_H
+#endif

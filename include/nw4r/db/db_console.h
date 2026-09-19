@@ -1,7 +1,7 @@
 #ifndef NW4R_DB_CONSOLE_H
 #define NW4R_DB_CONSOLE_H
 
-#ifdef VERSION_RSPE01_00
+#include <nw4r/types_nw4r.h>
 
 #include <nw4r/ut.h>
 
@@ -49,11 +49,9 @@ struct ConsoleHead {
 } // namespace detail
 
 void Console_VFPrintf(ConsoleOutputType type, ConsoleHandle handle,
-                      const char* fmt, va_list vlist);
+                      const char* fmt, std::va_list vlist);
 
 } // namespace db
 } // namespace nw4r
-
-#endif
 
 #endif

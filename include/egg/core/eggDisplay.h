@@ -42,7 +42,7 @@ public:
     }
 
     //! This is for RPSysSystem specifically.
-    void inline setFrameRate(u8 rate) {
+    void setFrameRate(u8 rate) {
         mFrameRate = rate;
     }
 

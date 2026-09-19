@@ -92,9 +92,16 @@ public:
     void SetFrm(f32 frame) {
         mFrame = mpPlayPolicy(mStartFrame, mEndFrame, frame);
     }
+
+#ifdef VERSION_RSPE01_00
+    void UpdateFrm() {
+        SetFrm(mFrame + mUpdateRate);
+    }
+#else
     void UpdateFrm() {
         SetFrm(mUpdateRate * smBaseUpdateRate + mFrame);
     }
+#endif
 
     f32 GetRate() const {
         return mUpdateRate;
@@ -114,7 +121,9 @@ private:
     f32 mEndFrame;               // at 0xC
     PlayPolicyFunc mpPlayPolicy; // at 0x10
 
+#ifdef VERSION_RSPE01_01
     static f32 smBaseUpdateRate;
+#endif
 };
 
 } // namespace g3d

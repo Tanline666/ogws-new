@@ -28,7 +28,6 @@ typedef struct OSContext {
 } OSContext;
 
 void OSSaveFPUContext(OSContext* ctx);
-void OSFillFPUContext(OSContext* ctx);
 void OSSetCurrentContext(OSContext* ctx);
 OSContext* OSGetCurrentContext(void);
 BOOL OSSaveContext(OSContext* ctx);
@@ -40,6 +39,7 @@ void OSClearContext(OSContext* ctx);
 void OSInitContext(OSContext* ctx, void* _srr0, void* stack);
 void OSDumpContext(const OSContext* ctx);
 void __OSContextInit(void);
+void OSFillFPUContext(OSContext* ctx);
 
 #ifdef __cplusplus
 }

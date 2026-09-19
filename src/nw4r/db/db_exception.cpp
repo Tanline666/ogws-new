@@ -8,6 +8,37 @@
 namespace nw4r {
 namespace db {
 
+//! Forward declarations
+
+static void ErrorHandler_(u16 error, OSContext* context, u32 dsisr, u32 dar);
+
+static void* RunThread_(void* arg);
+
+static void DumpException_(const ExceptionCallbackParam* exPtr);
+
+static void Exception_Printf_(const char* fmt, ...);
+
+static void PrintContext_(u16 error, const OSContext* context, u32 dsisr,
+                          u32 dar);
+
+static void ShowMainInfo_(u16 error, const OSContext* context, u32 dsisr,
+                          u32 dar);
+
+static void setFPException(u32 type);
+
+static ExceptionHead sException;
+// TODO(texline) why?
+static u8 sThreadBuffer[16384];
+static OSMessage sMsgBuffer[1];
+
+static const char* CPU_EXP_NAME[] = {
+    "SYSTEM RESET",       "MACHINE CHECK",    "DSI",     "ISI",
+    "EXTERNAL INTERRUPT", "ALIGNMENT",        "PROGRAM", "FLOATING POINT",
+    "DECREMENTER",        "SYSTEM CALL",      "TRACE",   "PERFORMACE MONITOR",
+    "BREAK POINT",        "SYSTEM INTERRUPT",
+    "THERMAL INTERRUPT", // unused
+    "PROTECTION",         "FLOATING POINT"};
+
 void Exception_Init() {
     memset(&sException, 0, sizeof(ExceptionHead));
     sException.callback = NULL;

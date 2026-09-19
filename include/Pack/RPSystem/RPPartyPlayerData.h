@@ -107,7 +107,6 @@ public:
     void setDebutTime(RPTime32 time);
     /**@}*/
 
-#ifdef VERSION_RSPE01_00
     /**
      * @brief Deserializes this object from the specified stream
      *
@@ -120,7 +119,6 @@ public:
      * @param rStrm Memory stream
      */
     void write(EGG::RamStream& rStrm);
-#endif
 
 private:
     /**
