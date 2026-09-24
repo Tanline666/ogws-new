@@ -1,15 +1,18 @@
-#ifndef EGG_GFXE_CPU_TEXTURE_H
-#define EGG_GFXE_CPU_TEXTURE_H
-#include <egg/types_egg.h>
+#ifndef RP_GRAPHICS_CPU_TEXTURE_H
+#define RP_GRAPHICS_CPU_TEXTURE_H
 
-#include <egg/gfx/eggResTIMG.h>
-#include <egg/prim.h>
+#include <Pack/types_pack.h>
+
+#include <Pack/RPGraphics/RPGrpResTIMG.h>
 
 #include <revolution/GX.h>
 
-namespace EGG {
+//! TODO(texline) Confirm this
 
-class CpuTexture {
+/**
+ * @note Superseded by EGG::CpuTexture in rev 1.
+ */
+class RPGrpCpuTexture {
 private:
     u16 mFlags;    // at 0x0
     u16 mWidth;    // at 0x2
@@ -35,18 +38,18 @@ public:
 
 public:
     //! @bug Texture buffer is leaked
-    virtual ~CpuTexture() {}                      // at 0x8
+    virtual ~RPGrpCpuTexture() {}                 // at 0x8
     virtual void configure();                     // at 0xC
     virtual void getTexObj(GXTexObj* pObj) const; // at 0x10
     virtual void load(GXTexMapID map);            // at 0x14
 
-    CpuTexture();
-    CpuTexture(u16 width, u16 height, GXTexFmt format);
+    RPGrpCpuTexture();
+    RPGrpCpuTexture(u16 width, u16 height, GXTexFmt format);
 
     void alloc();
     void allocWithHeaderDebug();
 
-    ResTIMG* getResTIMG() const;
+    RPGrpResTIMG* getResTIMG() const;
     u32 getTexBufferSize() const;
 
     void fillNormalMapSphere();
@@ -129,11 +132,6 @@ public:
         return mpBuffer;
     }
     void setBuffer(void* pBuffer) {
-#line 180
-        EGG_ASSERT(pBuffer);
-#line 180
-        EGG_ASSERT(( u32 )pBuffer % 32 == 0);
-
         mpBuffer = pBuffer;
         clearFlag(cFlag_HasHeader);
     }
@@ -147,14 +145,12 @@ private:
 private:
     void initResTIMG() const;
 
-    ResTIMG* getHeader() const {
+    RPGrpResTIMG* getHeader() const {
         // clang-format off
-        return reinterpret_cast<ResTIMG*>(
-            reinterpret_cast<u8*>(mpBuffer) - sizeof(ResTIMG));
+        return reinterpret_cast<RPGrpResTIMG*>(
+            reinterpret_cast<u8*>(mpBuffer) - sizeof(RPGrpResTIMG));
         // clang-format on
     }
 };
-
-} // namespace EGG
 
 #endif

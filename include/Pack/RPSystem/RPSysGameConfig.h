@@ -10,6 +10,11 @@
 
 /**
  * @brief Pack Project Game Config File (`gameConfig.ini`)
+ *
+ * @details Some of the listed people did not work (or were not
+ * credited on Wii Sports, but on other Pack Project games. Some
+ * names are verified with the Wii Fit config, which contains
+ * commented kanji spellings.
  */
 class RPSysGameConfig : public RPSysTagParameters {
     RP_SINGLETON_DECL_EX(RPSysGameConfig);
@@ -40,29 +45,29 @@ private:
     RPSysPrimTagParm<int> mRPUserPrint; // at 0x90
 
 #if defined(VERSION_RSPE01_01)
-    //! Mr. Sumaki print setting
+    //! Kazuya Sumaki print setting
     RPSysPrimTagParm<int> mRPSmkPrint; // at 0xA0
-    //! Mr. Okamura(?) print setting
+    //! Yuichiro Okamura(?) print setting
     RPSysPrimTagParm<int> mRPOkaPrint; // at 0xB0
     //! Unknown
     RPSysPrimTagParm<int> mRPOknPrint; // at 0xC0
-    //! Mr. Kasamatsu print setting
+    //! Shigehiro Kasamatsu print setting
     RPSysPrimTagParm<int> mRPKasPrint; // at 0xD0
-    //! Mr. Matsutani print setting
+    //! Kenji Matsutani print setting
     RPSysPrimTagParm<int> mRPMatPrint; // at 0xE0
-    //! Mr. Sawaya print setting
+    //! Yuji Sawatani print setting
     RPSysPrimTagParm<int> mRPSawPrint; // at 0xF0
-    //! Mr. Sakakibara print setting
+    //! Masaro Sakakibara print setting
     RPSysPrimTagParm<int> mRPSakPrint; // at 0x100
-    //! Mr. Koda print setting
+    //! Kiyoshi Kohda print setting
     RPSysPrimTagParm<int> mRPKodPrint; // at 0x110
-    //! Mr. Sakaguchi print setting
+    //! Atsushi Sakaguchi print setting
     RPSysPrimTagParm<int> mRPGutPrint; // at 0x120
-    //! Mr. Sakai print setting
+    //! Kouji Sakai print setting
     RPSysPrimTagParm<int> mRPSaiPrint; // at 0x130
-    //! Mr. Sumiyoshi print setting
+    //! Nobuhiro Sumiyoshi print setting
     RPSysPrimTagParm<int> mRPSumPrint; // at 0x140
-    //! Mr. Umemiya print setting
+    //! Hiroshi Umemiya print setting
     RPSysPrimTagParm<int> mRPUmePrint; // at 0x150
 #endif
 
