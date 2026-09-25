@@ -1026,7 +1026,7 @@ config.libs = [
             Object(NonMatching, "revolution/VI/vi.c"),
             Object(NonMatching, "revolution/VI/i2c.c"),
             Object(NonMatching, "revolution/VI/vi3in1.c"),
-            Object(Matching, "revolution/WUD/WUD.c"),
+            Object(not MatchingFor("RSPE01_00"), "revolution/WUD/WUD.c"),
             Object(Matching, "revolution/WUD/WUDHidHost.c"),
             Object(Matching, "revolution/WUD/debug_msg.c"),
             Object(Matching, "revolution/AI/ai.c"),
