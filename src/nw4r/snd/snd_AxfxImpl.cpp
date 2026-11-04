@@ -9,6 +9,14 @@ AxfxImpl* AxfxImpl::mCurrentFx = NULL;
 u32 AxfxImpl::mAllocatedSize = 0;
 
 bool AxfxImpl::CreateHeap(void* pBuffer, u32 size) {
+    //! @bug Does not check if parameters are NULL
+    //! Fix code from Wii Fit Plus
+#if defined(BUG_FIX)
+    if (!pBuffer || !size) {
+        mHeap = NULL;
+        return FALSE;
+    }
+#endif
     mHeap = MEMCreateFrmHeap(pBuffer, size);
     return mHeap != NULL;
 }
@@ -16,6 +24,10 @@ bool AxfxImpl::CreateHeap(void* pBuffer, u32 size) {
 void AxfxImpl::DestroyHeap() {
     if (mHeap != NULL) {
         MEMDestroyFrmHeap(mHeap);
+        //! @bug Heap is destroyed, but mHeap still points to it
+#if defined(BUG_FIX)
+        mHeap = NULL;
+#endif
     }
 }
 

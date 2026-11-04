@@ -13,17 +13,6 @@
  * @note Superseded by EGG::CpuTexture in rev 1.
  */
 class RPGrpCpuTexture {
-private:
-    u16 mFlags;    // at 0x0
-    u16 mWidth;    // at 0x2
-    u16 mHeight;   // at 0x4
-    u8 mFormat;    // at 0x6
-    u8 mWrapS;     // at 0x7
-    u8 mWrapT;     // at 0x8
-    u8 mMinFilter; // at 0x9
-    u8 mMagFilter; // at 0xA
-    char UNK_0xB[0x10 - 0xB];
-    void* mpBuffer; // at 0x10
 
 public:
     enum EGradationKind {
@@ -151,6 +140,18 @@ private:
             reinterpret_cast<u8*>(mpBuffer) - sizeof(RPGrpResTIMG));
         // clang-format on
     }
+
+private:
+    u16 mFlags;    // at 0x0
+    u16 mWidth;    // at 0x2
+    u16 mHeight;   // at 0x4
+    u8 mFormat;    // at 0x6
+    u8 mWrapS;     // at 0x7
+    u8 mWrapT;     // at 0x8
+    u8 mMinFilter; // at 0x9
+    u8 mMagFilter; // at 0xA
+    char UNK_0xB[0x10 - 0xB];
+    void* mpBuffer; // at 0x10
 };
 
 #endif

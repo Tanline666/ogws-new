@@ -37,6 +37,7 @@ void Group::Init() {
 Group::~Group() {
     NW4R_UT_LINKLIST_FOREACH_SAFE (it, mPaneLinkList, {
         mPaneLinkList.Erase(it);
+        //! @bug Does not check if PaneLink is NULL prior to freeing
         Layout::FreeMemory(&*it);
     })
 }
